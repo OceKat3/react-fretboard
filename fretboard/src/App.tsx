@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Scale } from './core/note-logic'
+import { getNoteName, HARMONIC_MINOR, MAJOR, MINOR, range, Scale, STANDARD_TUNING } from './core/note-logic'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +23,16 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      {MAJOR.map((flag, index) => flag && <span style={{fontSize:'4rem', margin:'1rem'}} key={index}>{getNoteName(index)}</span>)}
+      <br />
+      {MINOR.map((flag, index) => flag && <span style={{fontSize:'4rem', margin:'1rem'}} key={index}>{getNoteName(index)}</span>)}
+      <br />
+      {HARMONIC_MINOR.map((flag, index) => flag && <span style={{fontSize:'4rem', margin:'1rem'}} key={index}>{getNoteName(index)}</span>)}
+      <br />
+      {STANDARD_TUNING.map(
+        (pitchClass, index) => <span style={{fontSize:'4rem', margin:'1rem'}} key={index}>{getNoteName(pitchClass)}</span>
+        )}
     </>
   )
 }
