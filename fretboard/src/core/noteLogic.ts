@@ -33,6 +33,8 @@ const NATURAL_NOTE_NAMES: { [key: number]: string } = {
 
 export function getNoteName(pitchClass: number, accidental: 'sharp' | 'flat' = 'flat'): string {
 
+    pitchClass = pitchClass % 12
+
     if (pitchClass in NATURAL_NOTE_NAMES) return NATURAL_NOTE_NAMES[pitchClass]
 
     if (accidental == 'flat')
