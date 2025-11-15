@@ -17,7 +17,7 @@ const scaleFromPitchClasses = (pitchClasses: number[]) => range(12).map((index) 
 
 export function shiftScale(scale: Scale, shift: number): Scale {
 
-    return range(12).map((index) => scale[(index + shift + 12) % 12])
+    return range(12).map((index) => scale[(index - shift + 12) % 12])
 
 }
 
@@ -31,11 +31,14 @@ const NATURAL_NOTE_NAMES: { [key: number]: string } = {
     11: 'B'
 }
 
-export function getNoteName(pitchClass: number, accidental: 'sharp' | 'flat' = 'flat'): string {
+export function getNoteName(pitchClass: number, accidental: 'sharp' | 'flat' | 'both' = 'flat'): string {
 
     pitchClass = pitchClass % 12
 
     if (pitchClass in NATURAL_NOTE_NAMES) return NATURAL_NOTE_NAMES[pitchClass]
+
+    if(accidental == 'both') 
+        return `${getNoteName(pitchClass, 'flat')}/${getNoteName(pitchClass, 'sharp')}`
 
     if (accidental == 'flat')
         return NATURAL_NOTE_NAMES[(pitchClass + 1) % 12] + '♭'

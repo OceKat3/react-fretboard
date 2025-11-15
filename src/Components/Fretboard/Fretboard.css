@@ -1,0 +1,32 @@
+table {
+  border-collapse: collapse;
+}
+
+tbody {
+
+  > :not(:last-child) {
+    /* border: 1px solid white; */
+
+    > :not(:first-child) {
+      border: 1px solid white;
+    }
+  }
+}
+
+.note {
+  background-color: darkred;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  justify-content: center;
+  border-radius: 50%;
+  bottom: 1rem;
+  left: 1rem;
+  position: relative;
+  line-height: 2rem;
+}
+
+td {
+  width: 4rem;
+  align-items: center;
+}

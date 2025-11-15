@@ -21,9 +21,9 @@ export default function Fretboard({ handleNotePressed }: Props) {
                 onClick={() => handleNotePressed(pitchClass)}
                 key={fret}
             >
-                <b className="note" style={{ visibility: scale[pitchClass] ? 'visible' : 'hidden' }}>
+                <div className="note" style={{ visibility: scale[pitchClass] ? 'visible' : 'hidden' }}>
                     {getNoteName(pitchClass, 'sharp')}
-                </b>
+                </div>
             </td>
         )
     }
